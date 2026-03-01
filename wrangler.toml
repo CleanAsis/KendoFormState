@@ -2,7 +2,7 @@
 # Deploy with: wrangler pages deploy dist
 # Or: npm run deploy
 
-name = "kendo-form-state"
+name = "poc-kendo-form-state"
 compatibility_date = "2024-09-23"
 
 # Static assets output directory produced by `npm run build`
