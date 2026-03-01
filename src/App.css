@@ -1,0 +1,120 @@
+/* ── Layout ────────────────────────────────────────────────────────────────── */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f4f6f9;
+  color: #333;
+}
+
+.app-header {
+  background: #fff;
+  border-bottom: 2px solid #0078d4;
+  padding: 1.25rem 2rem;
+}
+
+.app-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.6rem;
+  color: #0078d4;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ── Forms container ───────────────────────────────────────────────────────── */
+
+.forms-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  flex: 1;
+}
+
+@media (max-width: 860px) {
+  .forms-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.form-title {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  color: #0078d4;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+/* ── Individual fields ─────────────────────────────────────────────────────── */
+
+.form-field {
+  margin-bottom: 0.75rem;
+}
+
+.form-field .k-floating-label-container,
+.form-field .k-form-field {
+  width: 100%;
+}
+
+/* ── Copy buttons ──────────────────────────────────────────────────────────── */
+
+.copy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.copy-actions .k-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.3;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  gap: 0.15rem;
+}
+
+.approach-tag {
+  font-size: 0.7rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────────── */
+
+.app-footer {
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding: 1rem 2rem;
+  font-size: 0.82rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.app-footer p {
+  margin: 0.35rem 0;
+}
+
+.app-footer code {
+  background: #f0f0f0;
+  border-radius: 3px;
+  padding: 0 4px;
+  font-size: 0.8rem;
+}
+
