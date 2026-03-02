@@ -4,6 +4,7 @@ import { Input } from '@progress/kendo-react-inputs';
 import type { FormRenderProps } from '@progress/kendo-react-form';
 import type { AddressData } from '../types';
 import { ADDRESS_FIELDS, emptyAddress } from '../types';
+import { trackRender } from '../renderTracker';
 
 /**
  * Public API exposed to parent via ref.
@@ -22,6 +23,8 @@ export interface BillingFormHandle {
  */
 export const BillingForm = forwardRef<BillingFormHandle>(
   function BillingForm(_, ref) {
+    trackRender();
+
     const fRPRef = useRef<FormRenderProps | null>(null);
 
     useImperativeHandle(ref, () => ({

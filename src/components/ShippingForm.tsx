@@ -12,6 +12,7 @@ import { Button } from '@progress/kendo-react-buttons';
 import type { FormRenderProps } from '@progress/kendo-react-form';
 import type { AddressData } from '../types';
 import { ADDRESS_FIELDS, COPYABLE_ADDRESS_FIELDS, emptyAddress } from '../types';
+import { trackRender, scheduleLogEntry } from '../renderTracker';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
@@ -42,6 +43,8 @@ interface ShippingFormProps {
 
 export const ShippingForm = forwardRef<ShippingFormHandle, ShippingFormProps>(
   function ShippingForm({ getBillingValues }, ref) {
+    trackRender();
+
     // ── Approach #1 state ───────────────────────────────────────────────────
     // Incrementing formKey forces React to unmount + remount the Kendo Form,
     // which re-applies `initialValues`. Simple but resets ALL form state.
@@ -95,6 +98,7 @@ export const ShippingForm = forwardRef<ShippingFormHandle, ShippingFormProps>(
      * fields the user may have partially filled in outside the address block.
      */
     const handleCopy1 = () => {
+      scheduleLogEntry('Approach #1 – initialValues reset');
       const data = getBillingValues();
       const merged = { ...emptyAddress };
       COPYABLE_ADDRESS_FIELDS.forEach(({ name }) => {
@@ -112,6 +116,7 @@ export const ShippingForm = forwardRef<ShippingFormHandle, ShippingFormProps>(
      * if it wanted to trigger this from outside ShippingForm.
      */
     const handleCopy2 = () => {
+      scheduleLogEntry('Approach #2 – onChange');
       applyValues(getBillingValues());
     };
 
@@ -129,6 +134,7 @@ export const ShippingForm = forwardRef<ShippingFormHandle, ShippingFormProps>(
      * (via state) and imperatively (via the ref handle).
      */
     const handleCopy3 = () => {
+      scheduleLogEntry('Approach #3 – reactive + ref');
       setPendingCopy(getBillingValues());
     };
 

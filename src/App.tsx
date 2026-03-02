@@ -1,13 +1,17 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import '@progress/kendo-theme-default/dist/all.css';
 import './App.css';
 import { BillingForm } from './components/BillingForm';
 import type { BillingFormHandle } from './components/BillingForm';
 import { ShippingForm } from './components/ShippingForm';
 import type { ShippingFormHandle } from './components/ShippingForm';
+import { RenderLogPanel } from './components/RenderLogPanel';
+import { trackRender, pushLogEntry } from './renderTracker';
 import { emptyAddress } from './types';
 
 function App() {
+  trackRender();
+
   /**
    * Ref to BillingForm – used to read current field values on demand via the
    * `getValues()` handle that BillingForm exposes through useImperativeHandle.
@@ -32,6 +36,11 @@ function App() {
    */
   const getBillingValues = () =>
     billingRef.current?.getValues() ?? { ...emptyAddress };
+
+  // Log the total number of renders that occurred during the initial mount.
+  useEffect(() => {
+    pushLogEntry('Initial render', 0);
+  }, []);
 
   return (
     <div className="app">
@@ -86,6 +95,8 @@ function App() {
           via <code>shippingRef.current.setValues(data)</code>.
         </p>
       </footer>
+
+      <RenderLogPanel />
     </div>
   );
 }
