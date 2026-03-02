@@ -32,3 +32,8 @@ export const ADDRESS_FIELDS: AddressFieldConfig[] = [
   { name: 'state', label: 'State' },
   { name: 'zip', label: 'ZIP Code' },
 ];
+
+/** Fields eligible for copying between forms (excludes personal info). */
+export const COPYABLE_ADDRESS_FIELDS = ADDRESS_FIELDS.filter(
+  ({ name }) => !(['firstName', 'phone', 'email'] as (keyof AddressData)[]).includes(name),
+);

@@ -11,7 +11,7 @@ import { Input } from '@progress/kendo-react-inputs';
 import { Button } from '@progress/kendo-react-buttons';
 import type { FormRenderProps } from '@progress/kendo-react-form';
 import type { AddressData } from '../types';
-import { ADDRESS_FIELDS, emptyAddress } from '../types';
+import { ADDRESS_FIELDS, COPYABLE_ADDRESS_FIELDS, emptyAddress } from '../types';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
@@ -67,7 +67,7 @@ export const ShippingForm = forwardRef<ShippingFormHandle, ShippingFormProps>(
     const applyValues = useCallback((data: AddressData) => {
       const fRP = fRPRef.current;
       if (!fRP) return;
-      ADDRESS_FIELDS.forEach(({ name }) => {
+      COPYABLE_ADDRESS_FIELDS.forEach(({ name }) => {
         fRP.onChange(name, { value: data[name] });
       });
     }, []);
@@ -96,7 +96,11 @@ export const ShippingForm = forwardRef<ShippingFormHandle, ShippingFormProps>(
      */
     const handleCopy1 = () => {
       const data = getBillingValues();
-      setInitialValues(data);
+      const merged = { ...emptyAddress };
+      COPYABLE_ADDRESS_FIELDS.forEach(({ name }) => {
+        merged[name] = data[name];
+      });
+      setInitialValues(merged);
       setFormKey((k) => k + 1);
     };
 
