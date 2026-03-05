@@ -16,9 +16,12 @@
     "@progress/kendo-react-form": "^14.2.0",
     "@progress/kendo-react-inputs": "^14.2.0",
     "@progress/kendo-react-labels": "^14.2.0",
+    "@progress/kendo-react-layout": "^14.2.0",
     "@progress/kendo-theme-default": "^13.0.1",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.13.1",
+    "zustand": "^5.0.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

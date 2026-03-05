@@ -118,6 +118,81 @@
   font-size: 0.8rem;
 }
 
+/* ── Tab container ─────────────────────────────────────────────────────────── */
+
+.tab-container {
+  flex: 1;
+  padding: 1rem 2rem 2rem;
+}
+
+.tab-container .k-tabstrip {
+  border: none;
+}
+
+/* ── Zustand placeholder ───────────────────────────────────────────────────── */
+
+.zustand-tab-placeholder {
+  padding: 2rem;
+  text-align: center;
+  color: #555;
+}
+
+.zustand-tab-placeholder h2 {
+  color: #0078d4;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Zustand State Panel ───────────────────────────────────────────────────── */
+
+.state-panel {
+  margin: 1rem 2rem;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.state-panel-header {
+  padding: 8px 12px;
+  background: #313244;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.state-panel-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 12px 16px;
+}
+
+@media (max-width: 860px) {
+  .state-panel-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.state-panel-section h4 {
+  margin: 0 0 4px;
+  color: #89b4fa;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.state-panel-section pre {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #a6e3a1;
+  white-space: pre-wrap;
+}
+
 /* ── Render Log Panel (floating bottom-right) ──────────────────────────────── */
 
 .render-log-panel {
